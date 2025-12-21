@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phan Minh Duc - Mobile App Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0070C0; /* Blue theme from CV */
+            --secondary-color: #E7F3FA; /* Light blue header bg */
+            --text-color: #333;
+            --bg-color: #f4f4f4;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header/Hero */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin: 10px 0 20px;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-download {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-color);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .btn-download:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Sections */
+        section {
+            padding: 40px 0;
+            background-color: var(--card-bg);
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        /* Self PR */
+        .self-pr-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        @media(min-width: 768px) {
+            .self-pr-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Skills */
+        .skills-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .skills-table td {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .skills-table td:first-child {
+            font-weight: bold;
+            width: 150px;
+            color: var(--primary-color);
+            background-color: var(--secondary-color);
+        }
+
+        /* Apps Links */
+        .app-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .app-card {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid var(--primary-color);
+            flex: 1 1 300px;
+        }
+        
+        .app-card h3 {
+            margin-top: 0;
+            font-size: 1.1rem;
+        }
+
+        .store-links a {
+            display: inline-block;
+            margin-right: 10px;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .store-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Timeline / Experience */
+        .timeline-item {
+            border-left: 2px solid var(--primary-color);
+            padding-left: 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            position: absolute;
+            left: -7px;
+            top: 5px;
+        }
+
+        .timeline-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-role {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .timeline-company {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Projects */
+        .project-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #ccc;
+        }
+        
+        .project-item:last-child {
+            border-bottom: none;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tech-stack {
+            font-style: italic;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>PHAN MINH DUC</h1>
+            <p>SOFTWARE ENGINEER / MOBILE APP DEVELOPER</p>
+            <div class="contact-info">
+                <a href="mailto:ducphan1311@gmail.com"><i class="fas fa-envelope"></i> ducphan1311@gmail.com</a>
+                <a href="tel:0395828955"><i class="fas fa-phone"></i> 0395828955</a>
+                <a href="https://github.com/ducphan1311" target="_blank"><i class="fab fa-github"></i> github.com/ducphan1311</a>
+                <span><i class="fas fa-map-marker-alt"></i> Ho Tung Mau, Ha Noi</span>
+            </div>
+            <a href="./Phan_Minh_Duc_Resume.docx" class="btn-download" download>
+                <i class="fas fa-download"></i> Download CV (DOCX)
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Self PR Section -->
+        <section id="self-pr">
+            <h2>SELF PR</h2>
+            <div class="self-pr-grid">
+                <div>
+                    <h3>Business Domains</h3>
+                    <p>E-commerce, Banking, Fintech, Health care, Education</p>
+                </div>
+                <div>
+                    <h3>Experience Summary</h3>
+                    <p>5 years of experience working as a developer.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Apps Section -->
+        <section id="apps">
+            <h2>PUBLISHED APPS</h2>
+            <div class="app-links">
+                <!-- App 1: Banking -->
+                <div class="app-card">
+                    <h3>Banking (VPBank / NeoBiz)</h3>
+                    <div class="store-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.vpbank.mobileappcmp&hl=vi" target="_blank"><i class="fab fa-google-play"></i> Android (VPBank)</a><br>
+                        <a href="https://apps.apple.com/vn/app/vpbank-neobiz-plus/id1659613560" target="_blank"><i class="fab fa-app-store-ios"></i> iOS (NeoBiz Plus)</a>
+                    </div>
+                </div>
+
+                <!-- App 2: Fintech -->
+                <div class="app-card">
+                    <h3>Fintech (Finavi)</h3>
+                    <div class="store-links">
+                        <a href="https://play.google.com/store/apps/details?id=vn.com.finavi.mts&hl=en-VN" target="_blank"><i class="fab fa-google-play"></i> Android</a><br>
+                        <a href="https://apps.apple.com/vn/app/finavi/id6446972800?l=vi" target="_blank"><i class="fab fa-app-store-ios"></i> iOS</a>
+                    </div>
+                </div>
+
+                <!-- App 3: Health Care -->
+                <div class="app-card">
+                    <h3>Health Care (HMUH)</h3>
+                    <div class="store-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.bsmlabs.hmuh" target="_blank"><i class="fab fa-google-play"></i> Android</a><br>
+                        <a href="https://apps.apple.com/vn/app/hmuh-ai/id6741954542?l=vi" target="_blank"><i class="fab fa-app-store-ios"></i> iOS</a>
+                    </div>
+                </div>
+
+                 <!-- App 4: Education -->
+                 <div class="app-card">
+                    <h3>Education (Mainichi Nihongo)</h3>
+                    <div class="store-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.ohmidas.mainichi.nihongo&hl=en-VN" target="_blank"><i class="fab fa-google-play"></i> Android</a><br>
+                        <a href="https://apps.apple.com/vn/app/mainichi-nihongo-v2/id6469684532?l=vi" target="_blank"><i class="fab fa-app-store-ios"></i> iOS</a>
+                    </div>
+                </div>
+
+                <!-- App 5: E-commerce -->
+                <div class="app-card">
+                    <h3>E-commerce (YODY)</h3>
+                    <div class="store-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.yody.fashion&hl=en-US" target="_blank"><i class="fab fa-google-play"></i> Android</a><br>
+                        <a href="https://apps.apple.com/vn/app/yody/id1610704200?l=vi" target="_blank"><i class="fab fa-app-store-ios"></i> iOS</a>
+                    </div>
+                </div>
+
+                 <!-- App 6: Travel -->
+                 <div class="app-card">
+                    <h3>Travel (Việt Nam Diệu Sử)</h3>
+                    <div class="store-links">
+                        <a href="https://apps.apple.com/vn/app/vi%E1%BB%87t-nam-di%E1%BB%87u-s%E1%BB%AD/id6743313532" target="_blank"><i class="fab fa-app-store-ios"></i> iOS</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>SKILLS</h2>
+            <table class="skills-table">
+                <tr>
+                    <td>Mobile</td>
+                    <td>Flutter, React Native, Android - Kotlin, iOS – Swift</td>
+                </tr>
+                <tr>
+                    <td>Backend</td>
+                    <td>Java, Python, Php</td>
+                </tr>
+                <tr>
+                    <td>Queue/DB</td>
+                    <td>Postgresql, Firebase, MySql, SQLite, Hive</td>
+                </tr>
+                <tr>
+                    <td>Ops</td>
+                    <td>Docker</td>
+                </tr>
+                <tr>
+                    <td>DVCS</td>
+                    <td>Git, Github, Azure, Bitbucket</td>
+                </tr>
+                <tr>
+                    <td>OS</td>
+                    <td>Android, iOS, Windows</td>
+                </tr>
+                <tr>
+                    <td>English</td>
+                    <td>Read & Write</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>WORK EXPERIENCE</h2>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">7/2025 - Present</div>
+                <div class="timeline-role">SOFTWARE ENGINEER</div>
+                <div class="timeline-company">VPBank</div>
+                <div>Flutter, Android - Kotlin, iOS – Swift</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2/2025 – 7/2025</div>
+                <div class="timeline-role">MOBILE TEAM LEAD</div>
+                <div class="timeline-company">BSM Labs</div>
+                <div>Flutter, Android - Kotlin, iOS – Swift</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">9/2023 – 2/2025</div>
+                <div class="timeline-role">MOBILE TEAM LEAD</div>
+                <div class="timeline-company">Ohmidas VN</div>
+                <div>Flutter, Java, Python, Postgresql</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">8/2022 – 9/2023</div>
+                <div class="timeline-role">SOFTWARE ENGINEER</div>
+                <div class="timeline-company">GROOO INTERNATIONAL</div>
+                <div>Flutter, React Native</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2/2021 – 7/2022</div>
+                <div class="timeline-role">SOFTWARE ENGINEER</div>
+                <div class="timeline-company">AgileTech</div>
+                <div>Flutter, React Native</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">9/2020 – 2/2021</div>
+                <div class="timeline-role">SOFTWARE ENGINEER</div>
+                <div class="timeline-company">VTD</div>
+                <div>Android – Kotlin</div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>PROJECTS</h2>
+
+            <div class="project-item">
+                <div class="project-title">
+                    <span>VPBank NEOBiz Plus</span>
+                    <span>2025</span>
+                </div>
+                <div class="tech-stack">Flutter, iOS – Swift</div>
+                <p>Banking application for businesses</p>
+                <ul>
+                    <li>Role: Mobile Developer</li>
+                    <li>Developed features, optimized code, fixed bugs.</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">
+                    <span>Việt Nam Diệu Sử</span>
+                    <span>2025</span>
+                </div>
+                <div class="tech-stack">Flutter, iOS – Swift</div>
+                <p>AR-integrated travel application</p>
+                <ul>
+                    <li>Role: TEAM LEAD / Mobile Developer</li>
+                    <li>Planning, Review code, Developed features, optimized code, fixed bugs.</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">
+                    <span>HMUH AI</span>
+                    <span>2025</span>
+                </div>
+                <div class="tech-stack">Flutter</div>
+                <p>AI-integrated healthcare application</p>
+                <ul>
+                    <li>Role: TEAM LEAD / Mobile Developer</li>
+                    <li>Planning, Review code, Developed features, optimized code, fixed bugs.</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">
+                    <span>Ebond</span>
+                    <span>2024 – 2025</span>
+                </div>
+                <div class="tech-stack">Flutter, Java, Kafka, .Net, Postgresql</div>
+                <p>Application on POS machine to support business stores - research technology solutions</p>
+                <ul>
+                    <li>Role: TEAM LEAD</li>
+                    <li>Planning, Review code, Developed features, optimized code, fixed bugs.</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">
+                    <span>Mainichi Nihongo</span>
+                    <span>2023 - 2024</span>
+                </div>
+                <div class="tech-stack">Flutter</div>
+                <p>The application supports language learning through an online to offline mechanism</p>
+                <ul>
+                    <li>Role: TEAM LEAD</li>
+                    <li>Planning, Review code, Developed features, optimized code, fixed bugs.</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">
+                    <span>Finavi MTS</span>
+                    <span>2022 - 2023</span>
+                </div>
+                <div class="tech-stack">Flutter, React Native</div>
+                <p>Financial application for buying, selling and exchanging domestic</p>
+                <ul>
+                    <li>Role: Mobile Developer</li>
+                    <li>Developed features, optimized code, fixed bugs.</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">
+                    <span>ACCS</span>
+                    <span>2022</span>
+                </div>
+                <div class="tech-stack">Flutter</div>
+                <p>Mobile applications and windows software support restaurant and restaurant surveillance camera management</p>
+                <ul>
+                    <li>Role: Mobile Developer</li>
+                    <li>Developed features, optimized code, fixed bugs.</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">
+                    <span>YODY ECOMMERCE APP</span>
+                    <span>2021 - 2022</span>
+                </div>
+                <div class="tech-stack">Flutter</div>
+                <p>ECOMMERCE</p>
+                <ul>
+                    <li>Role: Mobile Developer</li>
+                    <li>Developed features, optimized code, fixed bugs.</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">
+                    <span>Tan Viet Book</span>
+                    <span>2021 - 2022</span>
+                </div>
+                <div class="tech-stack">Flutter</div>
+                <p>ECOMMERCE</p>
+                <ul>
+                    <li>Role: Mobile Developer</li>
+                    <li>Developed features, optimized code, fixed bugs.</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <!-- Education -->
+        <section id="education">
+            <h2>EDUCATION</h2>
+            <ul>
+                <li><strong>Electric Power University</strong> - Major: Information Technology (2017 - 2022)</li>
+                <li>IT PLUS CERF (ITPlus Academy) - 2020 – 2021</li>
+                <li>B2 CERF - 2021</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Phan Minh Duc. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
