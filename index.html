@@ -3,543 +3,2043 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phan Minh Duc - Mobile App Developer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="Portfolio of Phan Minh Duc, a Mobile Software Engineer specializing in Flutter, native iOS, and Android applications.">
+    <meta name="theme-color" content="#08234a">
+    <title>Phan Minh Duc — Mobile Software Engineer</title>
     <style>
         :root {
-            --primary-color: #0070C0; /* Blue theme from CV */
-            --secondary-color: #E7F3FA; /* Light blue header bg */
-            --text-color: #333;
-            --bg-color: #f4f4f4;
-            --card-bg: #ffffff;
+            --navy-950: #06152d;
+            --navy-900: #08234a;
+            --navy-800: #0b3268;
+            --blue-600: #1769e0;
+            --blue-500: #2f80ed;
+            --blue-100: #dcecff;
+            --blue-50: #f2f7ff;
+            --teal-500: #18a891;
+            --teal-100: #d8f5ef;
+            --ink-900: #14213a;
+            --ink-700: #34445f;
+            --ink-500: #60708a;
+            --line: #dfe7f1;
+            --surface: #ffffff;
+            --page: #f6f8fc;
+            --shadow-sm: 0 8px 24px rgba(18, 44, 82, 0.07);
+            --shadow-lg: 0 24px 70px rgba(3, 20, 48, 0.22);
+            --radius-sm: 10px;
+            --radius-md: 18px;
+            --radius-lg: 26px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
             margin: 0;
-            padding: 0;
+            color: var(--ink-900);
+            background: var(--page);
+            font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body:has(dialog[open]) {
+            overflow: hidden;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        :focus-visible {
+            outline: 3px solid #7db4ff;
+            outline-offset: 3px;
+        }
+
+        .skip-link {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            padding: 10px 14px;
+            color: var(--navy-950);
+            background: white;
+            border-radius: 8px;
+            transform: translateY(-150%);
+            transition: transform 180ms ease;
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
         }
 
         .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
+            width: min(1160px, calc(100% - 40px));
+            margin-inline: auto;
         }
 
-        /* Header/Hero */
-        header {
-            background-color: var(--primary-color);
+        .site-header {
+            position: relative;
+            overflow: hidden;
             color: white;
-            padding: 60px 0;
-            text-align: center;
+            background:
+                radial-gradient(circle at 78% 10%, rgba(47, 128, 237, 0.45), transparent 29rem),
+                radial-gradient(circle at 10% 90%, rgba(24, 168, 145, 0.18), transparent 25rem),
+                linear-gradient(135deg, var(--navy-950), var(--navy-800));
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
+        .site-header::after {
+            position: absolute;
+            right: -80px;
+            bottom: -160px;
+            width: 420px;
+            height: 420px;
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 50%;
+            box-shadow:
+                0 0 0 58px rgba(255, 255, 255, 0.025),
+                0 0 0 116px rgba(255, 255, 255, 0.018);
+            content: "";
+            pointer-events: none;
         }
 
-        header p {
-            font-size: 1.2rem;
-            margin: 10px 0 20px;
+        .nav {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 78px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
         }
 
-        .contact-info a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: bold;
+        .brand {
             display: inline-flex;
             align-items: center;
-            gap: 5px;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        .btn-download {
-            display: inline-block;
-            background-color: white;
-            color: var(--primary-color);
-            padding: 10px 20px;
-            border-radius: 5px;
+            gap: 12px;
+            color: white;
+            font-weight: 750;
             text-decoration: none;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: background 0.3s;
+            letter-spacing: -0.01em;
         }
 
-        .btn-download:hover {
-            background-color: var(--secondary-color);
-        }
-
-        /* Sections */
-        section {
-            padding: 40px 0;
-            background-color: var(--card-bg);
-            margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 10px;
-            margin-top: 0;
-        }
-
-        /* Self PR */
-        .self-pr-grid {
+        .brand-mark {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-        
-        @media(min-width: 768px) {
-            .self-pr-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        /* Skills */
-        .skills-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
+            width: 40px;
+            height: 40px;
+            place-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.12);
+            font-size: 0.76rem;
+            letter-spacing: 0.07em;
         }
 
-        .skills-table td {
-            padding: 10px;
-            border-bottom: 1px solid #eee;
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
         }
 
-        .skills-table td:first-child {
-            font-weight: bold;
-            width: 150px;
-            color: var(--primary-color);
-            background-color: var(--secondary-color);
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.78);
+            font-size: 0.92rem;
+            font-weight: 650;
+            text-decoration: none;
+            transition: color 160ms ease;
         }
 
-        /* Apps Links */
-        .app-links {
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-download {
+            display: inline-flex;
+            min-height: 40px;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 14px;
+            color: white;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .hero {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: minmax(0, 1.35fr) minmax(290px, 0.65fr);
+            gap: clamp(44px, 8vw, 96px);
+            align-items: center;
+            padding-block: clamp(68px, 9vw, 112px) clamp(72px, 10vw, 124px);
+        }
+
+        .hero > *,
+        .project-card-featured > * {
+            min-width: 0;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0 0 18px;
+            color: var(--teal-100);
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            width: 24px;
+            height: 2px;
+            background: #4ed7c0;
+            border-radius: 10px;
+            content: "";
+        }
+
+        .hero h1 {
+            max-width: 760px;
+            margin: 0;
+            font-size: clamp(3rem, 7vw, 5.75rem);
+            line-height: 0.98;
+            letter-spacing: -0.058em;
+        }
+
+        .hero-role {
+            display: block;
+            margin-top: 14px;
+            color: #9ec6ff;
+            font-size: clamp(1.22rem, 3vw, 1.85rem);
+            font-weight: 650;
+            letter-spacing: -0.025em;
+        }
+
+        .hero-copy {
+            max-width: 690px;
+            margin: 24px 0 0;
+            color: rgba(255, 255, 255, 0.74);
+            font-size: clamp(1rem, 1.8vw, 1.16rem);
+        }
+
+        .hero-actions,
+        .store-actions,
+        .contact-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 12px;
         }
 
-        .app-card {
-            background: #f9f9f9;
-            padding: 15px;
-            border-radius: 5px;
-            border-left: 4px solid var(--primary-color);
-            flex: 1 1 300px;
-        }
-        
-        .app-card h3 {
-            margin-top: 0;
-            font-size: 1.1rem;
+        .hero-actions {
+            margin-top: 30px;
         }
 
-        .store-links a {
-            display: inline-block;
-            margin-right: 10px;
-            color: var(--primary-color);
+        .button {
+            display: inline-flex;
+            min-height: 48px;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 11px 18px;
+            border: 1px solid transparent;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 750;
+            text-decoration: none;
+            transition:
+                transform 160ms ease,
+                border-color 160ms ease,
+                background-color 160ms ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .button-primary {
+            color: var(--navy-950);
+            background: white;
+        }
+
+        .button-secondary {
+            color: white;
+            border-color: rgba(255, 255, 255, 0.24);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .button-arrow {
+            font-size: 1.05rem;
+            line-height: 1;
+        }
+
+        .contact-list {
+            margin-top: 28px;
+        }
+
+        .contact-list a,
+        .contact-list span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 0.88rem;
             text-decoration: none;
         }
-        
-        .store-links a:hover {
-            text-decoration: underline;
+
+        .contact-list a:hover {
+            color: white;
         }
 
-        /* Timeline / Experience */
-        .timeline-item {
-            border-left: 2px solid var(--primary-color);
-            padding-left: 20px;
-            margin-bottom: 30px;
+        .contact-dot {
+            width: 5px;
+            height: 5px;
+            background: #4ed7c0;
+            border-radius: 50%;
+        }
+
+        .hero-panel {
+            position: relative;
+            padding: 28px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: var(--radius-lg);
+            background: rgba(255, 255, 255, 0.085);
+            box-shadow: var(--shadow-lg);
+            backdrop-filter: blur(12px);
+        }
+
+        .hero-panel::before {
+            position: absolute;
+            inset: 0 0 auto;
+            height: 3px;
+            background: linear-gradient(90deg, #4ed7c0, #66a8ff);
+            content: "";
+        }
+
+        .panel-label {
+            margin: 0 0 12px;
+            color: #90bfff;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .hero-panel h2 {
+            margin: 0;
+            font-size: 1.4rem;
+            line-height: 1.25;
+            letter-spacing: -0.025em;
+        }
+
+        .hero-panel > p:not(.panel-label) {
+            margin: 12px 0 24px;
+            color: rgba(255, 255, 255, 0.68);
+            font-size: 0.92rem;
+        }
+
+        .focus-list {
+            display: grid;
+            gap: 12px;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .focus-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255, 255, 255, 0.84);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .check {
+            display: grid;
+            flex: 0 0 22px;
+            width: 22px;
+            height: 22px;
+            place-items: center;
+            color: #6be1ce;
+            background: rgba(78, 215, 192, 0.12);
+            border-radius: 7px;
+            font-size: 0.72rem;
+        }
+
+        .metric-strip {
+            position: relative;
+            z-index: 3;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            margin-top: -39px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            background: white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .metric {
+            padding: 22px 26px;
+        }
+
+        .metric + .metric {
+            border-left: 1px solid var(--line);
+        }
+
+        .metric strong {
+            display: block;
+            color: var(--navy-900);
+            font-size: 1.45rem;
+            line-height: 1.2;
+            letter-spacing: -0.035em;
+        }
+
+        .metric span {
+            color: var(--ink-500);
+            font-size: 0.8rem;
+            font-weight: 650;
+        }
+
+        main {
+            padding-block: 86px 0;
+        }
+
+        .section {
+            scroll-margin-top: 24px;
+            margin-bottom: 96px;
+        }
+
+        .section-heading {
+            display: grid;
+            grid-template-columns: minmax(0, 0.85fr) minmax(280px, 1.15fr);
+            gap: 48px;
+            align-items: end;
+            margin-bottom: 34px;
+        }
+
+        .section-kicker {
+            display: block;
+            margin-bottom: 9px;
+            color: var(--blue-600);
+            font-size: 0.75rem;
+            font-weight: 850;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .section-heading h2 {
+            margin: 0;
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.08;
+            letter-spacing: -0.045em;
+        }
+
+        .section-heading p {
+            max-width: 620px;
+            margin: 0;
+            color: var(--ink-500);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .project-card {
+            position: relative;
+            display: flex;
+            min-width: 0;
+            flex-direction: column;
+            padding: clamp(24px, 3vw, 32px);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            background: var(--surface);
+            box-shadow: 0 3px 0 rgba(11, 50, 104, 0.025);
+            transition:
+                transform 180ms ease,
+                border-color 180ms ease,
+                box-shadow 180ms ease;
+        }
+
+        .project-card:hover {
+            border-color: #b9d2f3;
+            box-shadow: var(--shadow-sm);
+            transform: translateY(-3px);
+        }
+
+        .project-card-featured {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+            gap: clamp(30px, 6vw, 72px);
+            overflow: hidden;
+            color: white;
+            border-color: transparent;
+            background:
+                radial-gradient(circle at 93% 14%, rgba(47, 128, 237, 0.38), transparent 24rem),
+                linear-gradient(140deg, var(--navy-950), var(--navy-800));
+            box-shadow: 0 20px 55px rgba(6, 31, 69, 0.18);
+        }
+
+        .project-card-featured:hover {
+            border-color: transparent;
+            box-shadow: 0 26px 70px rgba(6, 31, 69, 0.24);
+        }
+
+        .project-card-featured .project-type,
+        .project-card-featured .project-description,
+        .project-card-featured .scope-copy,
+        .project-card-featured .fact-label,
+        .project-card-featured .associated {
+            color: rgba(255, 255, 255, 0.68);
+        }
+
+        .project-card-featured .project-name,
+        .project-card-featured .scope-title,
+        .project-card-featured .fact-value {
+            color: white;
+        }
+
+        .project-card-featured .project-badge {
+            color: var(--teal-100);
+            border-color: rgba(78, 215, 192, 0.24);
+            background: rgba(78, 215, 192, 0.1);
+        }
+
+        .project-card-featured .project-facts {
+            border-color: rgba(255, 255, 255, 0.14);
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .project-card-featured .fact:nth-child(even) {
+            border-left-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .project-card-featured .tech-chip {
+            color: white;
+            border-color: rgba(255, 255, 255, 0.14);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .project-card-featured .store-link {
+            color: white;
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .project-card-featured .store-link:hover {
+            border-color: rgba(255, 255, 255, 0.38);
+            background: rgba(255, 255, 255, 0.14);
+        }
+
+        .project-topline {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .project-type {
+            color: var(--ink-500);
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+        }
+
+        .project-badge {
+            display: inline-flex;
+            padding: 5px 9px;
+            color: var(--blue-600);
+            border: 1px solid var(--blue-100);
+            border-radius: 999px;
+            background: var(--blue-50);
+            font-size: 0.7rem;
+            font-weight: 800;
+        }
+
+        .project-name {
+            margin: 0;
+            color: var(--navy-900);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            line-height: 1.15;
+            letter-spacing: -0.035em;
+        }
+
+        .project-description {
+            margin: 9px 0 24px;
+            color: var(--ink-500);
+            font-size: 0.95rem;
+        }
+
+        .project-facts {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            overflow: hidden;
+            margin: 0 0 24px;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: #fbfcfe;
+        }
+
+        .fact {
+            min-width: 0;
+            padding: 14px 16px;
+        }
+
+        .fact:nth-child(n + 3) {
+            border-top: 1px solid var(--line);
+        }
+
+        .fact:nth-child(even) {
+            border-left: 1px solid var(--line);
+        }
+
+        .fact-label,
+        .fact-value {
+            display: block;
+        }
+
+        .fact-label {
+            margin-bottom: 3px;
+            color: var(--ink-500);
+            font-size: 0.66rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .fact-value {
+            overflow-wrap: anywhere;
+            color: var(--ink-900);
+            font-size: 0.88rem;
+            font-weight: 750;
+        }
+
+        .scope {
+            margin-bottom: 22px;
+        }
+
+        .scope-title {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--ink-900);
+            font-size: 0.78rem;
+            font-weight: 850;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .scope-copy {
+            margin: 0;
+            color: var(--ink-700);
+            font-size: 0.94rem;
+        }
+
+        .project-footer {
+            margin-top: auto;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-chip {
+            display: inline-flex;
+            padding: 6px 10px;
+            color: var(--navy-800);
+            border: 1px solid #dce6f3;
+            border-radius: 8px;
+            background: #f7faff;
+            font-size: 0.75rem;
+            font-weight: 750;
+        }
+
+        .store-actions {
+            gap: 9px;
+        }
+
+        .store-link {
+            display: inline-flex;
+            min-height: 42px;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            padding: 8px 12px;
+            color: var(--navy-800);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: white;
+            font-size: 0.78rem;
+            font-weight: 800;
+            text-decoration: none;
+            transition:
+                border-color 160ms ease,
+                background-color 160ms ease;
+        }
+
+        .store-link:hover {
+            border-color: #9cc0ef;
+            background: var(--blue-50);
+        }
+
+        .associated {
+            margin: 18px 0 0;
+            color: var(--ink-500);
+            font-size: 0.77rem;
+        }
+
+        .associated strong {
+            color: inherit;
+        }
+
+        .other-projects {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 22px;
+        }
+
+        .other-project {
+            display: flex;
+            min-width: 0;
+            flex-direction: column;
+            padding: 20px;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .other-project h3 {
+            margin: 0 0 5px;
+            color: var(--navy-900);
+            font-size: 1rem;
+            line-height: 1.3;
+        }
+
+        .other-project p {
+            margin: 0;
+            color: var(--ink-500);
+            font-size: 0.8rem;
+        }
+
+        .other-project .mini-meta {
+            margin-top: auto;
+            padding-top: 15px;
+            color: var(--ink-700);
+            font-size: 0.73rem;
+            font-weight: 700;
+        }
+
+        .other-project .store-link {
+            align-self: flex-start;
+            margin-top: 14px;
+        }
+
+        .experience-layout {
+            display: grid;
+            grid-template-columns: minmax(240px, 0.62fr) minmax(0, 1.38fr);
+            gap: clamp(44px, 8vw, 100px);
+        }
+
+        .experience-intro {
+            position: sticky;
+            top: 24px;
+            align-self: start;
+        }
+
+        .experience-intro h2 {
+            margin: 0;
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.08;
+            letter-spacing: -0.045em;
+        }
+
+        .experience-intro p {
+            margin: 18px 0 0;
+            color: var(--ink-500);
+        }
+
+        .timeline {
             position: relative;
         }
 
-        .timeline-item::before {
-            content: '';
-            width: 12px;
-            height: 12px;
-            background: var(--primary-color);
-            border-radius: 50%;
+        .timeline::before {
             position: absolute;
-            left: -7px;
-            top: 5px;
+            top: 9px;
+            bottom: 8px;
+            left: 5px;
+            width: 1px;
+            background: #cbd8e8;
+            content: "";
+        }
+
+        .timeline-item {
+            position: relative;
+            display: grid;
+            grid-template-columns: 130px minmax(0, 1fr);
+            gap: 22px;
+            padding: 0 0 34px 30px;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            position: absolute;
+            top: 6px;
+            left: 0;
+            width: 11px;
+            height: 11px;
+            border: 3px solid var(--page);
+            border-radius: 50%;
+            background: var(--blue-600);
+            box-shadow: 0 0 0 1px var(--blue-600);
+            content: "";
         }
 
         .timeline-date {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 5px;
+            color: var(--ink-500);
+            font-size: 0.78rem;
+            font-weight: 750;
         }
 
         .timeline-role {
-            font-weight: bold;
-            font-size: 1.1rem;
-            color: #333;
+            margin: 0;
+            color: var(--ink-900);
+            font-size: 1.05rem;
+            line-height: 1.25;
         }
 
         .timeline-company {
-            font-weight: bold;
-            color: var(--primary-color);
+            margin: 5px 0 6px;
+            color: var(--blue-600);
+            font-size: 0.9rem;
+            font-weight: 800;
         }
 
-        /* Projects */
-        .project-item {
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px dashed #ccc;
-        }
-        
-        .project-item:last-child {
-            border-bottom: none;
+        .timeline-tech {
+            margin: 0;
+            color: var(--ink-500);
+            font-size: 0.84rem;
         }
 
-        .project-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .skill-card {
+            padding: 22px;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: white;
+        }
+
+        .skill-card h3 {
+            margin: 0 0 9px;
+            color: var(--navy-900);
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .skill-card p {
+            margin: 0;
+            color: var(--ink-700);
+            font-size: 0.9rem;
+        }
+
+        .education-row {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .education-item {
+            padding: 22px;
+            border-top: 3px solid var(--blue-600);
+            border-radius: 4px 4px 14px 14px;
+            background: white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .education-item strong,
+        .education-item span {
+            display: block;
+        }
+
+        .education-item strong {
+            color: var(--navy-900);
+            font-size: 0.98rem;
+        }
+
+        .education-item span {
+            margin-top: 5px;
+            color: var(--ink-500);
+            font-size: 0.82rem;
+        }
+
+        .resume-cta {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 28px;
             align-items: center;
-        }
-
-        .tech-stack {
-            font-style: italic;
-            color: #555;
-            margin: 5px 0;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #333;
+            padding: clamp(28px, 5vw, 52px);
+            margin-bottom: 80px;
             color: white;
-            margin-top: 40px;
+            border-radius: var(--radius-lg);
+            background:
+                radial-gradient(circle at 90% 20%, rgba(47, 128, 237, 0.42), transparent 19rem),
+                var(--navy-950);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .resume-cta h2 {
+            margin: 0;
+            font-size: clamp(1.65rem, 4vw, 2.4rem);
+            line-height: 1.1;
+            letter-spacing: -0.04em;
+        }
+
+        .resume-cta p {
+            max-width: 650px;
+            margin: 10px 0 0;
+            color: rgba(255, 255, 255, 0.68);
+        }
+
+        .site-footer {
+            padding: 32px 0;
+            color: var(--ink-500);
+            border-top: 1px solid var(--line);
+            background: white;
+        }
+
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            font-size: 0.8rem;
+        }
+
+        .footer-inner p {
+            margin: 0;
+        }
+
+        .back-to-top {
+            color: var(--navy-800);
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .resume-dialog {
+            width: min(560px, calc(100% - 32px));
+            max-height: min(760px, calc(100dvh - 32px));
+            padding: 0;
+            overflow: auto;
+            color: var(--ink-900);
+            border: 0;
+            border-radius: 22px;
+            background: white;
+            box-shadow: 0 30px 100px rgba(0, 15, 39, 0.36);
+        }
+
+        .resume-dialog::backdrop {
+            background: rgba(3, 15, 33, 0.72);
+            backdrop-filter: blur(5px);
+        }
+
+        .dialog-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 26px 26px 20px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .dialog-header h2 {
+            margin: 0;
+            color: var(--navy-900);
+            font-size: 1.45rem;
+            letter-spacing: -0.03em;
+        }
+
+        .dialog-header p {
+            margin: 5px 0 0;
+            color: var(--ink-500);
+            font-size: 0.84rem;
+        }
+
+        .dialog-close {
+            display: grid;
+            flex: 0 0 42px;
+            width: 42px;
+            height: 42px;
+            place-items: center;
+            color: var(--ink-700);
+            border: 1px solid var(--line);
+            border-radius: 11px;
+            background: white;
+            cursor: pointer;
+            font-size: 1.3rem;
+        }
+
+        .format-list {
+            display: grid;
+            gap: 12px;
+            padding: 22px 26px 26px;
+        }
+
+        .format-option {
+            display: grid;
+            grid-template-columns: 46px minmax(0, 1fr) auto;
+            gap: 14px;
+            align-items: center;
+            min-height: 76px;
+            padding: 13px 15px;
+            color: var(--ink-900);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: white;
+            cursor: pointer;
+            text-align: left;
+            text-decoration: none;
+            transition:
+                border-color 160ms ease,
+                background-color 160ms ease,
+                transform 160ms ease;
+        }
+
+        .format-option:hover {
+            border-color: #9dc1f0;
+            background: var(--blue-50);
+            transform: translateY(-1px);
+        }
+
+        .format-option-primary {
+            border-color: #b6d4fb;
+            background: var(--blue-50);
+        }
+
+        .format-icon {
+            display: grid;
+            width: 46px;
+            height: 46px;
+            place-items: center;
+            color: var(--blue-600);
+            border-radius: 11px;
+            background: var(--blue-100);
+            font-size: 0.72rem;
+            font-weight: 900;
+            letter-spacing: 0.03em;
+        }
+
+        .format-copy strong,
+        .format-copy small {
+            display: block;
+        }
+
+        .format-copy strong {
+            color: var(--navy-900);
+            font-size: 0.92rem;
+        }
+
+        .format-copy small {
+            margin-top: 2px;
+            color: var(--ink-500);
+            font-size: 0.74rem;
+        }
+
+        .format-action {
+            color: var(--blue-600);
+            font-size: 0.75rem;
+            font-weight: 850;
+        }
+
+        .dialog-note {
+            margin: -8px 26px 24px;
+            color: var(--ink-500);
+            font-size: 0.72rem;
+            text-align: center;
+        }
+
+        @media (max-width: 920px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-panel {
+                max-width: 620px;
+            }
+
+            .project-card-featured {
+                grid-template-columns: 1fr;
+            }
+
+            .other-projects {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .experience-layout {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+
+            .experience-intro {
+                position: static;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .container {
+                width: min(100% - 28px, 1160px);
+            }
+
+            .nav {
+                min-height: 68px;
+            }
+
+            .nav-links > a {
+                display: none;
+            }
+
+            .hero {
+                gap: 38px;
+                padding-block: 58px 94px;
+            }
+
+            .metric-strip {
+                grid-template-columns: repeat(2, 1fr);
+                margin-top: -34px;
+            }
+
+            .metric:nth-child(3) {
+                border-left: 0;
+            }
+
+            .metric:nth-child(n + 3) {
+                border-top: 1px solid var(--line);
+            }
+
+            main {
+                padding-top: 72px;
+            }
+
+            .section {
+                margin-bottom: 76px;
+            }
+
+            .section-heading {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .project-grid,
+            .skills-grid,
+            .education-row {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card-featured {
+                grid-column: auto;
+            }
+
+            .resume-cta {
+                grid-template-columns: 1fr;
+            }
+
+            .resume-cta .button {
+                justify-self: start;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .brand-label {
+                display: none;
+            }
+
+            .eyebrow {
+                position: relative;
+                display: block;
+                padding-left: 32px;
+                line-height: 1.55;
+                overflow-wrap: anywhere;
+            }
+
+            .eyebrow::before {
+                position: absolute;
+                top: 0.72em;
+                left: 0;
+            }
+
+            .hero h1 {
+                font-size: clamp(2.75rem, 17vw, 4.25rem);
+            }
+
+            .hero-actions {
+                display: grid;
+            }
+
+            .hero-actions .button {
+                width: 100%;
+            }
+
+            .contact-list {
+                display: grid;
+            }
+
+            .hero-panel {
+                padding: 22px;
+                border-radius: 20px;
+            }
+
+            .metric {
+                padding: 18px;
+            }
+
+            .metric strong {
+                font-size: 1.2rem;
+            }
+
+            .project-card {
+                padding: 22px;
+            }
+
+            .project-facts {
+                grid-template-columns: 1fr;
+            }
+
+            .fact:nth-child(n + 2) {
+                border-top: 1px solid var(--line);
+            }
+
+            .fact:nth-child(even) {
+                border-left: 0;
+            }
+
+            .project-card-featured .fact:nth-child(even) {
+                border-left: 0;
+            }
+
+            .store-actions {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .other-projects {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 6px;
+            }
+
+            .resume-cta .button {
+                width: 100%;
+            }
+
+            .footer-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .resume-dialog {
+                width: 100%;
+                max-width: none;
+                max-height: 88dvh;
+                margin: auto 0 0;
+                border-radius: 22px 22px 0 0;
+            }
+
+            .dialog-header {
+                padding: 22px 18px 17px;
+            }
+
+            .format-list {
+                padding: 18px;
+            }
+
+            .format-option {
+                grid-template-columns: 42px minmax(0, 1fr);
+            }
+
+            .format-icon {
+                width: 42px;
+                height: 42px;
+            }
+
+            .format-action {
+                display: none;
+            }
+
+            .dialog-note {
+                margin-inline: 18px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+            }
+        }
+
+        @media print {
+            @page {
+                margin: 12mm;
+                size: A4;
+            }
+
+            body {
+                color: #111;
+                background: white;
+                font-size: 9pt;
+            }
+
+            .nav,
+            .hero-actions,
+            .contact-list,
+            .store-actions,
+            .resume-cta,
+            .site-footer,
+            .resume-dialog,
+            .other-projects {
+                display: none !important;
+            }
+
+            .site-header {
+                color: #111;
+                background: white;
+            }
+
+            .site-header::after {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 0 0 10mm;
+            }
+
+            .eyebrow,
+            .hero-role,
+            .hero-panel .panel-label {
+                color: #174b8c;
+            }
+
+            .hero h1 {
+                font-size: 28pt;
+            }
+
+            .hero-copy,
+            .hero-panel > p:not(.panel-label),
+            .focus-list li {
+                color: #444;
+            }
+
+            .hero-panel {
+                padding: 5mm;
+                color: #111;
+                border: 1px solid #ccc;
+                background: white;
+                box-shadow: none;
+            }
+
+            .check {
+                color: #174b8c;
+                background: #eef4fb;
+            }
+
+            .metric-strip {
+                margin-top: 0;
+                border-color: #bbb;
+                box-shadow: none;
+            }
+
+            main {
+                padding-top: 10mm;
+            }
+
+            .section {
+                margin-bottom: 10mm;
+            }
+
+            .section-heading {
+                margin-bottom: 6mm;
+            }
+
+            .project-card,
+            .skill-card,
+            .education-item {
+                break-inside: avoid;
+                box-shadow: none;
+            }
+
+            .project-card-featured {
+                grid-template-columns: 1fr;
+                color: #111;
+                border: 1px solid #bbb;
+                background: white;
+            }
+
+            .project-card-featured .project-type,
+            .project-card-featured .project-description,
+            .project-card-featured .scope-copy,
+            .project-card-featured .fact-label,
+            .project-card-featured .associated,
+            .project-card-featured .project-name,
+            .project-card-featured .scope-title,
+            .project-card-featured .fact-value {
+                color: #111;
+            }
+
+            .project-card-featured .project-facts,
+            .project-card-featured .tech-chip {
+                color: #111;
+                border-color: #ccc;
+                background: white;
+            }
+
+            .experience-intro {
+                position: static;
+            }
         }
     </style>
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <header>
+    <header class="site-header" id="top">
         <div class="container">
-            <h1>PHAN MINH DUC</h1>
-            <p>SOFTWARE ENGINEER / MOBILE APP DEVELOPER</p>
-            <div class="contact-info">
-                <a href="mailto:ducphan1311@gmail.com"><i class="fas fa-envelope"></i> ducphan1311@gmail.com</a>
-                <a href="tel:0395828955"><i class="fas fa-phone"></i> 0395828955</a>
-                <a href="https://github.com/ducphan1311" target="_blank"><i class="fab fa-github"></i> github.com/ducphan1311</a>
-                <span><i class="fas fa-map-marker-alt"></i> Ho Tung Mau, Ha Noi</span>
+            <nav class="nav" aria-label="Primary navigation">
+                <a class="brand" href="#top" aria-label="Phan Minh Duc, back to top">
+                    <span class="brand-mark" aria-hidden="true">PMD</span>
+                    <span class="brand-label">Phan Minh Duc</span>
+                </a>
+                <div class="nav-links">
+                    <a href="#projects">Projects</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#skills">Skills</a>
+                    <button class="nav-download" type="button" data-open-resume>Résumé</button>
+                </div>
+            </nav>
+
+            <div class="hero">
+                <div>
+                    <p class="eyebrow">Mobile Software Engineer · Hanoi, Vietnam</p>
+                    <h1>
+                        Phan Minh Duc
+                        <span class="hero-role">Building reliable mobile products from idea to release.</span>
+                    </h1>
+                    <p class="hero-copy">
+                        Mobile engineer with 5+ years of experience across banking, fintech,
+                        healthcare, e-commerce, and education—specializing in Flutter with
+                        hands-on native iOS and Android expertise.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="#projects">
+                            View selected work <span class="button-arrow" aria-hidden="true">↓</span>
+                        </a>
+                        <button class="button button-secondary" type="button" data-open-resume>
+                            Download résumé <span class="button-arrow" aria-hidden="true">↗</span>
+                        </button>
+                    </div>
+                    <div class="contact-list" aria-label="Contact information">
+                        <a href="mailto:ducphan1311@gmail.com">ducphan1311@gmail.com</a>
+                        <span class="contact-dot" aria-hidden="true"></span>
+                        <a href="tel:0395828955">0395 828 955</a>
+                        <span class="contact-dot" aria-hidden="true"></span>
+                        <a href="https://github.com/ducphan1311" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </div>
+                </div>
+
+                <aside class="hero-panel" aria-label="Current professional focus">
+                    <p class="panel-label">Current focus</p>
+                    <h2>Secure digital banking at VPBank</h2>
+                    <p>Delivering production mobile experiences across iOS and Android.</p>
+                    <ul class="focus-list">
+                        <li><span class="check" aria-hidden="true">✓</span>End-to-end mobile ownership</li>
+                        <li><span class="check" aria-hidden="true">✓</span>Security-conscious product delivery</li>
+                        <li><span class="check" aria-hidden="true">✓</span>Team leadership and code quality</li>
+                    </ul>
+                </aside>
             </div>
-            <a href="./Phan_Minh_Duc_Resume.docx" class="btn-download" download>
-                <i class="fas fa-download"></i> Download CV (DOCX)
-            </a>
         </div>
     </header>
 
     <div class="container">
-        <!-- Self PR Section -->
-        <section id="self-pr">
-            <h2>SELF PR</h2>
-            <div class="self-pr-grid">
-                <div>
-                    <h3>Business Domains</h3>
-                    <p>E-commerce, Banking, Fintech, Health care, Education</p>
-                </div>
-                <div>
-                    <h3>Experience Summary</h3>
-                    <p>5 years of experience working as a developer.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Apps Section -->
-        <section id="apps">
-            <h2>PUBLISHED APPS</h2>
-            <div class="app-links">
-                <!-- App 1: Banking -->
-                <div class="app-card">
-                    <h3>Banking (VPBank NeoBiz Plus)</h3>
-                    <div class="store-links">
-                        <a href="https://play.google.com/store/apps/details?id=com.vpbank.mobileappcmp&hl=vi" target="_blank"><i class="fab fa-google-play"></i> Android</a><br>
-                        <a href="https://apps.apple.com/vn/app/vpbank-neobiz-plus/id1659613560" target="_blank"><i class="fab fa-app-store-ios"></i> iOS</a>
-                    </div>
-                </div>
-
-                <!-- App 2: Fintech -->
-                <div class="app-card">
-                    <h3>Fintech (Finavi)</h3>
-                    <div class="store-links">
-                        <a href="https://play.google.com/store/apps/details?id=vn.com.finavi.mts&hl=en-VN" target="_blank"><i class="fab fa-google-play"></i> Android</a><br>
-                        <a href="https://apps.apple.com/vn/app/finavi/id6446972800?l=vi" target="_blank"><i class="fab fa-app-store-ios"></i> iOS</a>
-                    </div>
-                </div>
-
-                <!-- App 3: Health Care -->
-                <div class="app-card">
-                    <h3>Health Care (HMUH)</h3>
-                    <div class="store-links">
-                        <a href="https://play.google.com/store/apps/details?id=com.bsmlabs.hmuh" target="_blank"><i class="fab fa-google-play"></i> Android</a><br>
-                        <a href="https://apps.apple.com/vn/app/hmuh-ai/id6741954542?l=vi" target="_blank"><i class="fab fa-app-store-ios"></i> iOS</a>
-                    </div>
-                </div>
-
-                 <!-- App 4: Education -->
-                 <div class="app-card">
-                    <h3>Education (Mainichi Nihongo)</h3>
-                    <div class="store-links">
-                        <a href="https://play.google.com/store/apps/details?id=com.ohmidas.mainichi.nihongo&hl=en-VN" target="_blank"><i class="fab fa-google-play"></i> Android</a><br>
-                        <a href="https://apps.apple.com/vn/app/mainichi-nihongo-v2/id6469684532?l=vi" target="_blank"><i class="fab fa-app-store-ios"></i> iOS</a>
-                    </div>
-                </div>
-
-                <!-- App 5: E-commerce -->
-                <div class="app-card">
-                    <h3>E-commerce (YODY)</h3>
-                    <div class="store-links">
-                        <a href="https://play.google.com/store/apps/details?id=com.yody.fashion&hl=en-US" target="_blank"><i class="fab fa-google-play"></i> Android</a><br>
-                        <a href="https://apps.apple.com/vn/app/yody/id1610704200?l=vi" target="_blank"><i class="fab fa-app-store-ios"></i> iOS</a>
-                    </div>
-                </div>
-
-                 <!-- App 6: Travel -->
-                 <div class="app-card">
-                    <h3>Travel (Việt Nam Diệu Sử)</h3>
-                    <div class="store-links">
-                        <a href="https://apps.apple.com/vn/app/vi%E1%BB%87t-nam-di%E1%BB%87u-s%E1%BB%AD/id6743313532" target="_blank"><i class="fab fa-app-store-ios"></i> iOS</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills">
-            <h2>SKILLS</h2>
-            <table class="skills-table">
-                <tr>
-                    <td>Mobile</td>
-                    <td>Flutter, React Native, Android - Kotlin, iOS – Swift</td>
-                </tr>
-                <tr>
-                    <td>Backend</td>
-                    <td>Java, Python, Php</td>
-                </tr>
-                <tr>
-                    <td>Queue/DB</td>
-                    <td>Postgresql, Firebase, MySql, SQLite, Hive</td>
-                </tr>
-                <tr>
-                    <td>Ops</td>
-                    <td>Docker</td>
-                </tr>
-                <tr>
-                    <td>DVCS</td>
-                    <td>Git, Github, Azure, Bitbucket</td>
-                </tr>
-                <tr>
-                    <td>OS</td>
-                    <td>Android, iOS, Windows</td>
-                </tr>
-                <tr>
-                    <td>English</td>
-                    <td>Read & Write</td>
-                </tr>
-            </table>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience">
-            <h2>WORK EXPERIENCE</h2>
-            
-            <div class="timeline-item">
-                <div class="timeline-date">7/2025 - Present</div>
-                <div class="timeline-role">SOFTWARE ENGINEER</div>
-                <div class="timeline-company">VPBank</div>
-                <div>Flutter, Android - Kotlin, iOS – Swift</div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-date">2/2025 – 7/2025</div>
-                <div class="timeline-role">MOBILE TEAM LEAD</div>
-                <div class="timeline-company">BSM Labs</div>
-                <div>Flutter, Android - Kotlin, iOS – Swift</div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-date">9/2023 – 2/2025</div>
-                <div class="timeline-role">MOBILE TEAM LEAD</div>
-                <div class="timeline-company">Ohmidas VN</div>
-                <div>Flutter, Java, Python, Postgresql</div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-date">8/2022 – 9/2023</div>
-                <div class="timeline-role">SOFTWARE ENGINEER</div>
-                <div class="timeline-company">GROOO INTERNATIONAL</div>
-                <div>Flutter, React Native</div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-date">2/2021 – 7/2022</div>
-                <div class="timeline-role">SOFTWARE ENGINEER</div>
-                <div class="timeline-company">AgileTech</div>
-                <div>Flutter, React Native</div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-date">9/2020 – 2/2021</div>
-                <div class="timeline-role">SOFTWARE ENGINEER</div>
-                <div class="timeline-company">VTD</div>
-                <div>Android – Kotlin</div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects">
-            <h2>PROJECTS</h2>
-
-            <div class="project-item">
-                <div class="project-title">
-                    <span>VPBank NEOBiz Plus</span>
-                    <span>2025</span>
-                </div>
-                <div class="tech-stack">Flutter, iOS – Swift</div>
-                <p>Banking application for businesses</p>
-                <ul>
-                    <li>Role: Mobile Developer</li>
-                    <li>Developed features, optimized code, fixed bugs.</li>
-                </ul>
-            </div>
-
-            <div class="project-item">
-                <div class="project-title">
-                    <span>Việt Nam Diệu Sử</span>
-                    <span>2025</span>
-                </div>
-                <div class="tech-stack">Flutter, iOS – Swift</div>
-                <p>AR-integrated travel application</p>
-                <ul>
-                    <li>Role: TEAM LEAD / Mobile Developer</li>
-                    <li>Planning, Review code, Developed features, optimized code, fixed bugs.</li>
-                </ul>
-            </div>
-
-            <div class="project-item">
-                <div class="project-title">
-                    <span>HMUH AI</span>
-                    <span>2025</span>
-                </div>
-                <div class="tech-stack">Flutter</div>
-                <p>AI-integrated healthcare application</p>
-                <ul>
-                    <li>Role: TEAM LEAD / Mobile Developer</li>
-                    <li>Planning, Review code, Developed features, optimized code, fixed bugs.</li>
-                </ul>
-            </div>
-
-            <div class="project-item">
-                <div class="project-title">
-                    <span>Ebond</span>
-                    <span>2024 – 2025</span>
-                </div>
-                <div class="tech-stack">Flutter, Java, Kafka, .Net, Postgresql</div>
-                <p>Application on POS machine to support business stores - research technology solutions</p>
-                <ul>
-                    <li>Role: TEAM LEAD</li>
-                    <li>Planning, Review code, Developed features, optimized code, fixed bugs.</li>
-                </ul>
-            </div>
-
-            <div class="project-item">
-                <div class="project-title">
-                    <span>Mainichi Nihongo</span>
-                    <span>2023 - 2024</span>
-                </div>
-                <div class="tech-stack">Flutter</div>
-                <p>The application supports language learning through an online to offline mechanism</p>
-                <ul>
-                    <li>Role: TEAM LEAD</li>
-                    <li>Planning, Review code, Developed features, optimized code, fixed bugs.</li>
-                </ul>
-            </div>
-
-            <div class="project-item">
-                <div class="project-title">
-                    <span>Finavi MTS</span>
-                    <span>2022 - 2023</span>
-                </div>
-                <div class="tech-stack">Flutter, React Native</div>
-                <p>Financial application for buying, selling and exchanging domestic</p>
-                <ul>
-                    <li>Role: Mobile Developer</li>
-                    <li>Developed features, optimized code, fixed bugs.</li>
-                </ul>
-            </div>
-
-            <div class="project-item">
-                <div class="project-title">
-                    <span>ACCS</span>
-                    <span>2022</span>
-                </div>
-                <div class="tech-stack">Flutter</div>
-                <p>Mobile applications and windows software support restaurant and restaurant surveillance camera management</p>
-                <ul>
-                    <li>Role: Mobile Developer</li>
-                    <li>Developed features, optimized code, fixed bugs.</li>
-                </ul>
-            </div>
-
-            <div class="project-item">
-                <div class="project-title">
-                    <span>YODY ECOMMERCE APP</span>
-                    <span>2021 - 2022</span>
-                </div>
-                <div class="tech-stack">Flutter</div>
-                <p>ECOMMERCE</p>
-                <ul>
-                    <li>Role: Mobile Developer</li>
-                    <li>Developed features, optimized code, fixed bugs.</li>
-                </ul>
-            </div>
-
-            <div class="project-item">
-                <div class="project-title">
-                    <span>Tan Viet Book</span>
-                    <span>2021 - 2022</span>
-                </div>
-                <div class="tech-stack">Flutter</div>
-                <p>ECOMMERCE</p>
-                <ul>
-                    <li>Role: Mobile Developer</li>
-                    <li>Developed features, optimized code, fixed bugs.</li>
-                </ul>
-            </div>
-
-        </section>
-
-        <!-- Education -->
-        <section id="education">
-            <h2>EDUCATION</h2>
-            <ul>
-                <li><strong>Electric Power University</strong> - Major: Information Technology (2017 - 2022)</li>
-                <li>IT PLUS CERF (ITPlus Academy) - 2020 – 2021</li>
-                <li>B2 CERF - 2021</li>
-            </ul>
-        </section>
-
+        <div class="metric-strip" aria-label="Career overview">
+            <div class="metric"><strong>5+ years</strong><span>Professional experience</span></div>
+            <div class="metric"><strong>7</strong><span>Published mobile apps</span></div>
+            <div class="metric"><strong>iOS + Android</strong><span>Cross-platform delivery</span></div>
+            <div class="metric"><strong>5 domains</strong><span>Product experience</span></div>
+        </div>
     </div>
 
-    <footer>
-        <p>&copy; 2025 Phan Minh Duc. All Rights Reserved.</p>
+    <main id="main-content">
+        <section class="section container" id="projects">
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">Selected work</span>
+                    <h2>Mobile products with real-world impact.</h2>
+                </div>
+                <p>
+                    A concise view of team context, ownership, and technical scope across
+                    corporate banking, fintech, healthcare, retail, and education products.
+                </p>
+            </div>
+
+            <div class="project-grid">
+                <article class="project-card project-card-featured">
+                    <div>
+                        <div class="project-topline">
+                            <span class="project-type">Corporate digital banking</span>
+                            <span class="project-badge">Sole Mobile Engineer</span>
+                        </div>
+                        <h3 class="project-name">GPBank Biz</h3>
+                        <p class="project-description">Corporate Digital Banking Mobile App</p>
+                        <div class="scope">
+                            <span class="scope-title">Ownership &amp; scope</span>
+                            <p class="scope-copy">
+                                Owned the mobile application end-to-end, from initial development
+                                through handover and ongoing maintenance.
+                            </p>
+                        </div>
+                        <div class="tech-list" aria-label="Platforms">
+                            <span class="tech-chip">iOS</span>
+                            <span class="tech-chip">Android</span>
+                        </div>
+                        <div class="store-actions">
+                            <a class="store-link" href="https://apps.apple.com/us/app/gpbank-biz/id6760635421?l=vi" target="_blank" rel="noopener noreferrer">
+                                App Store <span aria-hidden="true">↗</span>
+                            </a>
+                            <a class="store-link" href="https://play.google.com/store/apps/details?id=com.gpbank.cmbapp&amp;hl=gsw&amp;pli=1" target="_blank" rel="noopener noreferrer">
+                                Google Play <span aria-hidden="true">↗</span>
+                            </a>
+                        </div>
+                        <p class="associated"><strong>Associated with:</strong> VPBank</p>
+                    </div>
+                    <div class="project-facts" aria-label="GPBank Biz project facts">
+                        <div class="fact">
+                            <span class="fact-label">Project team</span>
+                            <span class="fact-value">≈ 10 people</span>
+                        </div>
+                        <div class="fact">
+                            <span class="fact-label">Mobile team</span>
+                            <span class="fact-value">1 developer</span>
+                        </div>
+                        <div class="fact">
+                            <span class="fact-label">Role</span>
+                            <span class="fact-value">Sole Mobile Engineer</span>
+                        </div>
+                        <div class="fact">
+                            <span class="fact-label">Platforms</span>
+                            <span class="fact-value">iOS &amp; Android</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-topline">
+                        <span class="project-type">Business banking</span>
+                        <span class="project-badge">2025</span>
+                    </div>
+                    <h3 class="project-name">VPBank NeoBiz Plus</h3>
+                    <p class="project-description">Digital banking for business customers</p>
+                    <div class="project-facts" aria-label="VPBank NeoBiz Plus project facts">
+                        <div class="fact">
+                            <span class="fact-label">Project team</span>
+                            <span class="fact-value">20 people</span>
+                        </div>
+                        <div class="fact">
+                            <span class="fact-label">Mobile team</span>
+                            <span class="fact-value">6 developers</span>
+                        </div>
+                        <div class="fact">
+                            <span class="fact-label">Role</span>
+                            <span class="fact-value">Mobile Developer</span>
+                        </div>
+                        <div class="fact">
+                            <span class="fact-label">Core technologies</span>
+                            <span class="fact-value">Flutter, Swift</span>
+                        </div>
+                    </div>
+                    <div class="scope">
+                        <span class="scope-title">Key contribution</span>
+                        <p class="scope-copy">
+                            Developed deposit, reporting, and secure authentication features;
+                            also contributed to additional app modules.
+                        </p>
+                    </div>
+                    <div class="project-footer">
+                        <div class="tech-list" aria-label="Technologies">
+                            <span class="tech-chip">Flutter</span>
+                            <span class="tech-chip">iOS · Swift</span>
+                        </div>
+                        <div class="store-actions">
+                            <a class="store-link" href="https://apps.apple.com/vn/app/vpbank-neobiz-plus/id1659613560" target="_blank" rel="noopener noreferrer">App Store <span aria-hidden="true">↗</span></a>
+                            <a class="store-link" href="https://play.google.com/store/apps/details?id=com.vpbank.mobileappcmp&amp;hl=vi" target="_blank" rel="noopener noreferrer">Google Play <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-topline">
+                        <span class="project-type">Fintech</span>
+                        <span class="project-badge">2022–2023</span>
+                    </div>
+                    <h3 class="project-name">Finavi</h3>
+                    <p class="project-description">Investment and personal finance platform</p>
+                    <div class="project-facts" aria-label="Finavi project facts">
+                        <div class="fact">
+                            <span class="fact-label">Project team</span>
+                            <span class="fact-value">50 people</span>
+                        </div>
+                        <div class="fact">
+                            <span class="fact-label">Mobile team</span>
+                            <span class="fact-value">7 developers</span>
+                        </div>
+                        <div class="fact">
+                            <span class="fact-label">Role</span>
+                            <span class="fact-value">Mobile Developer</span>
+                        </div>
+                        <div class="fact">
+                            <span class="fact-label">Core technologies</span>
+                            <span class="fact-value">Flutter, React Native</span>
+                        </div>
+                    </div>
+                    <div class="scope">
+                        <span class="scope-title">Key contribution</span>
+                        <p class="scope-copy">
+                            Built data-visualization charts, the UI-focused Home experience,
+                            and interactive Explore &amp; Community features.
+                        </p>
+                    </div>
+                    <div class="project-footer">
+                        <div class="tech-list" aria-label="Technologies">
+                            <span class="tech-chip">Flutter</span>
+                            <span class="tech-chip">React Native</span>
+                        </div>
+                        <div class="store-actions">
+                            <a class="store-link" href="https://apps.apple.com/vn/app/finavi/id6446972800?l=vi" target="_blank" rel="noopener noreferrer">App Store <span aria-hidden="true">↗</span></a>
+                            <a class="store-link" href="https://play.google.com/store/apps/details?id=vn.com.finavi.mts&amp;hl=en-VN" target="_blank" rel="noopener noreferrer">Google Play <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-topline">
+                        <span class="project-type">AI healthcare</span>
+                        <span class="project-badge">2025</span>
+                    </div>
+                    <h3 class="project-name">HMUH AI</h3>
+                    <p class="project-description">AI-enabled healthcare mobile application</p>
+                    <div class="project-facts" aria-label="HMUH AI project facts">
+                        <div class="fact">
+                            <span class="fact-label">Project team</span>
+                            <span class="fact-value">10 people</span>
+                        </div>
+                        <div class="fact">
+                            <span class="fact-label">Mobile team</span>
+                            <span class="fact-value">3 developers</span>
+                        </div>
+                        <div class="fact">
+                            <span class="fact-label">Role</span>
+                            <span class="fact-value">Team Lead / Mobile Developer</span>
+                        </div>
+                        <div class="fact">
+                            <span class="fact-label">Core technology</span>
+                            <span class="fact-value">Flutter</span>
+                        </div>
+                    </div>
+                    <div class="scope">
+                        <span class="scope-title">Key contribution</span>
+                        <p class="scope-copy">
+                            Led end-to-end mobile delivery, from planning and implementation
+                            to code review, optimization, and maintenance.
+                        </p>
+                    </div>
+                    <div class="project-footer">
+                        <div class="tech-list" aria-label="Technologies">
+                            <span class="tech-chip">Flutter</span>
+                        </div>
+                        <div class="store-actions">
+                            <a class="store-link" href="https://apps.apple.com/vn/app/hmuh-ai/id6741954542?l=vi" target="_blank" rel="noopener noreferrer">App Store <span aria-hidden="true">↗</span></a>
+                            <a class="store-link" href="https://play.google.com/store/apps/details?id=com.bsmlabs.hmuh" target="_blank" rel="noopener noreferrer">Google Play <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-topline">
+                        <span class="project-type">E-commerce</span>
+                        <span class="project-badge">2021–2022</span>
+                    </div>
+                    <h3 class="project-name">YODY</h3>
+                    <p class="project-description">Fashion retail and e-commerce application</p>
+                    <div class="project-facts" aria-label="YODY project facts">
+                        <div class="fact">
+                            <span class="fact-label">Project team</span>
+                            <span class="fact-value">20 people</span>
+                        </div>
+                        <div class="fact">
+                            <span class="fact-label">Mobile team</span>
+                            <span class="fact-value">5 developers</span>
+                        </div>
+                        <div class="fact">
+                            <span class="fact-label">Role</span>
+                            <span class="fact-value">Mobile Developer</span>
+                        </div>
+                        <div class="fact">
+                            <span class="fact-label">Core technology</span>
+                            <span class="fact-value">Flutter</span>
+                        </div>
+                    </div>
+                    <div class="scope">
+                        <span class="scope-title">Key contribution</span>
+                        <p class="scope-copy">
+                            Contributed across the full e-commerce application, covering
+                            feature delivery, UI refinement, optimization, and maintenance.
+                        </p>
+                    </div>
+                    <div class="project-footer">
+                        <div class="tech-list" aria-label="Technologies">
+                            <span class="tech-chip">Flutter</span>
+                        </div>
+                        <div class="store-actions">
+                            <a class="store-link" href="https://apps.apple.com/vn/app/yody/id1610704200?l=vi" target="_blank" rel="noopener noreferrer">App Store <span aria-hidden="true">↗</span></a>
+                            <a class="store-link" href="https://play.google.com/store/apps/details?id=com.yody.fashion&amp;hl=en-US" target="_blank" rel="noopener noreferrer">Google Play <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-topline">
+                        <span class="project-type">Education</span>
+                        <span class="project-badge">2023–2024</span>
+                    </div>
+                    <h3 class="project-name">Mainichi Nihongo</h3>
+                    <p class="project-description">Online-to-offline Japanese learning platform</p>
+                    <div class="project-facts" aria-label="Mainichi Nihongo project facts">
+                        <div class="fact">
+                            <span class="fact-label">Project team</span>
+                            <span class="fact-value">10 people</span>
+                        </div>
+                        <div class="fact">
+                            <span class="fact-label">Mobile team</span>
+                            <span class="fact-value">3 developers</span>
+                        </div>
+                        <div class="fact">
+                            <span class="fact-label">Role</span>
+                            <span class="fact-value">Mobile Team Lead</span>
+                        </div>
+                        <div class="fact">
+                            <span class="fact-label">Core technology</span>
+                            <span class="fact-value">Flutter</span>
+                        </div>
+                    </div>
+                    <div class="scope">
+                        <span class="scope-title">Key contribution</span>
+                        <p class="scope-copy">
+                            Led end-to-end app delivery, including planning, development,
+                            code review, optimization, and maintenance.
+                        </p>
+                    </div>
+                    <div class="project-footer">
+                        <div class="tech-list" aria-label="Technologies">
+                            <span class="tech-chip">Flutter</span>
+                        </div>
+                        <div class="store-actions">
+                            <a class="store-link" href="https://apps.apple.com/vn/app/mainichi-nihongo-v2/id6469684532?l=vi" target="_blank" rel="noopener noreferrer">App Store <span aria-hidden="true">↗</span></a>
+                            <a class="store-link" href="https://play.google.com/store/apps/details?id=com.ohmidas.mainichi.nihongo&amp;hl=en-VN" target="_blank" rel="noopener noreferrer">Google Play <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="other-projects" aria-label="Additional projects">
+                <article class="other-project">
+                    <h3>Việt Nam Diệu Sử</h3>
+                    <p>AR-integrated cultural travel app</p>
+                    <span class="mini-meta">Team 5 · Team Lead / Mobile Developer · Flutter, Swift</span>
+                    <a class="store-link" href="https://apps.apple.com/vn/app/vi%E1%BB%87t-nam-di%E1%BB%87u-s%E1%BB%AD/id6743313532" target="_blank" rel="noopener noreferrer">App Store <span aria-hidden="true">↗</span></a>
+                </article>
+                <article class="other-project">
+                    <h3>Ebond</h3>
+                    <p>POS application and technology research</p>
+                    <span class="mini-meta">Team 25 · Team Lead · Flutter, Java, Kafka, .NET</span>
+                </article>
+                <article class="other-project">
+                    <h3>ACCS</h3>
+                    <p>Restaurant operations and surveillance management</p>
+                    <span class="mini-meta">Team 10 · Mobile Developer · Flutter</span>
+                </article>
+                <article class="other-project">
+                    <h3>Tan Viet Book</h3>
+                    <p>Book retail e-commerce application</p>
+                    <span class="mini-meta">Team 10 · Mobile Developer · Flutter</span>
+                </article>
+            </div>
+        </section>
+
+        <section class="section container" id="experience">
+            <div class="experience-layout">
+                <div class="experience-intro">
+                    <span class="section-kicker">Experience</span>
+                    <h2>From hands-on delivery to mobile leadership.</h2>
+                    <p>
+                        Building and guiding mobile products across startup, enterprise,
+                        and regulated banking environments.
+                    </p>
+                </div>
+
+                <div class="timeline">
+                    <article class="timeline-item">
+                        <span class="timeline-date">07/2025 — Present</span>
+                        <div>
+                            <h3 class="timeline-role">Software Engineer</h3>
+                            <p class="timeline-company">VPBank</p>
+                            <p class="timeline-tech">Flutter · Android / Kotlin · iOS / Swift</p>
+                        </div>
+                    </article>
+                    <article class="timeline-item">
+                        <span class="timeline-date">02/2025 — 07/2025</span>
+                        <div>
+                            <h3 class="timeline-role">Mobile Team Lead</h3>
+                            <p class="timeline-company">BSM Labs</p>
+                            <p class="timeline-tech">Flutter · Android / Kotlin · iOS / Swift</p>
+                        </div>
+                    </article>
+                    <article class="timeline-item">
+                        <span class="timeline-date">09/2023 — 02/2025</span>
+                        <div>
+                            <h3 class="timeline-role">Mobile Team Lead</h3>
+                            <p class="timeline-company">Ohmidas VN</p>
+                            <p class="timeline-tech">Flutter · Java · Python · PostgreSQL</p>
+                        </div>
+                    </article>
+                    <article class="timeline-item">
+                        <span class="timeline-date">08/2022 — 09/2023</span>
+                        <div>
+                            <h3 class="timeline-role">Software Engineer</h3>
+                            <p class="timeline-company">GROOO International</p>
+                            <p class="timeline-tech">Flutter · React Native</p>
+                        </div>
+                    </article>
+                    <article class="timeline-item">
+                        <span class="timeline-date">02/2021 — 07/2022</span>
+                        <div>
+                            <h3 class="timeline-role">Software Engineer</h3>
+                            <p class="timeline-company">AgileTech</p>
+                            <p class="timeline-tech">Flutter · React Native</p>
+                        </div>
+                    </article>
+                    <article class="timeline-item">
+                        <span class="timeline-date">09/2020 — 02/2021</span>
+                        <div>
+                            <h3 class="timeline-role">Software Engineer</h3>
+                            <p class="timeline-company">VTD</p>
+                            <p class="timeline-tech">Android · Kotlin</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section container" id="skills">
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">Core toolkit</span>
+                    <h2>Technology chosen around the product.</h2>
+                </div>
+                <p>
+                    Cross-platform by default, with native capability when platform-specific
+                    performance, security, or integration requires it.
+                </p>
+            </div>
+            <div class="skills-grid">
+                <article class="skill-card">
+                    <h3>Mobile</h3>
+                    <p>Flutter, React Native, Android / Kotlin, iOS / Swift</p>
+                </article>
+                <article class="skill-card">
+                    <h3>Backend</h3>
+                    <p>Java, Python, PHP</p>
+                </article>
+                <article class="skill-card">
+                    <h3>Data</h3>
+                    <p>PostgreSQL, Firebase, MySQL, SQLite, Hive</p>
+                </article>
+                <article class="skill-card">
+                    <h3>Delivery</h3>
+                    <p>Git, GitHub, Azure, Bitbucket, Docker</p>
+                </article>
+                <article class="skill-card">
+                    <h3>Platforms</h3>
+                    <p>Android, iOS, Windows</p>
+                </article>
+                <article class="skill-card">
+                    <h3>Communication</h3>
+                    <p>English — reading and writing</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section container" id="education">
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">Education</span>
+                    <h2>Academic foundation.</h2>
+                </div>
+                <p>Formal technology education supported by continued hands-on product work.</p>
+            </div>
+            <div class="education-row">
+                <article class="education-item">
+                    <strong>Electric Power University</strong>
+                    <span>Information Technology · 2017–2022</span>
+                </article>
+                <article class="education-item">
+                    <strong>ITPlus Academy</strong>
+                    <span>IT PLUS CERF · 2020–2021</span>
+                </article>
+                <article class="education-item">
+                    <strong>B2 CERF</strong>
+                    <span>English certification · 2021</span>
+                </article>
+            </div>
+        </section>
+
+        <section class="resume-cta container" aria-labelledby="resume-cta-title">
+            <div>
+                <h2 id="resume-cta-title">Need the concise version?</h2>
+                <p>Download a recruiter-ready résumé in PDF or DOCX, or print this portfolio directly.</p>
+            </div>
+            <button class="button button-primary" type="button" data-open-resume>
+                Choose a format <span class="button-arrow" aria-hidden="true">↗</span>
+            </button>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>© <span id="current-year">2026</span> Phan Minh Duc. Built for clarity, performance, and accessibility.</p>
+            <a class="back-to-top" href="#top">Back to top ↑</a>
+        </div>
     </footer>
 
+    <dialog class="resume-dialog" id="resume-dialog" aria-labelledby="resume-dialog-title">
+        <div class="dialog-header">
+            <div>
+                <h2 id="resume-dialog-title">Download résumé</h2>
+                <p>Choose the format that works best for you.</p>
+            </div>
+            <form method="dialog">
+                <button class="dialog-close" type="submit" aria-label="Close download options">×</button>
+            </form>
+        </div>
+        <div class="format-list">
+            <a class="format-option format-option-primary" href="./Phan_Minh_Duc_Resume.pdf" download="Phan_Minh_Duc_Resume.pdf">
+                <span class="format-icon" aria-hidden="true">PDF</span>
+                <span class="format-copy">
+                    <strong>PDF résumé</strong>
+                    <small>Recommended · Print-ready</small>
+                </span>
+                <span class="format-action">Download ↓</span>
+            </a>
+            <a class="format-option" href="./Phan_Minh_Duc_Resume.docx" download="Phan_Minh_Duc_Resume.docx">
+                <span class="format-icon" aria-hidden="true">DOC</span>
+                <span class="format-copy">
+                    <strong>Word document</strong>
+                    <small>DOCX · ATS-friendly &amp; editable</small>
+                </span>
+                <span class="format-action">Download ↓</span>
+            </a>
+            <button class="format-option" type="button" id="print-resume">
+                <span class="format-icon" aria-hidden="true">PRT</span>
+                <span class="format-copy">
+                    <strong>Print this portfolio</strong>
+                    <small>Use your browser to print or save as PDF</small>
+                </span>
+                <span class="format-action">Open ↗</span>
+            </button>
+        </div>
+        <p class="dialog-note">Both résumé formats include the latest featured-project details.</p>
+    </dialog>
+
+    <script>
+        (() => {
+            const dialog = document.getElementById("resume-dialog");
+            const openButtons = document.querySelectorAll("[data-open-resume]");
+            const printButton = document.getElementById("print-resume");
+            const year = document.getElementById("current-year");
+
+            year.textContent = new Date().getFullYear();
+
+            openButtons.forEach((button) => {
+                button.addEventListener("click", () => {
+                    if (typeof dialog.showModal === "function") {
+                        dialog.showModal();
+                    } else {
+                        dialog.setAttribute("open", "");
+                    }
+                });
+            });
+
+            dialog.addEventListener("click", (event) => {
+                if (event.target === dialog) {
+                    dialog.close();
+                }
+            });
+
+            printButton.addEventListener("click", () => {
+                dialog.close();
+                window.setTimeout(() => window.print(), 100);
+            });
+
+            if (window.location.hash === "#resume") {
+                window.setTimeout(() => openButtons[0]?.click(), 0);
+            }
+        })();
+    </script>
 </body>
 </html>
