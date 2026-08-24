@@ -653,6 +653,11 @@ def build_document() -> DocumentBuilder:
         ("Phone", "+84 395 828 955", "tel:+84395828955"),
         ("Email", "ducphan1311@gmail.com", "mailto:ducphan1311@gmail.com"),
         ("GitHub", "github.com/ducphan1311", "https://github.com/ducphan1311"),
+        (
+            "LinkedIn",
+            "minh-duc-phan-5a3b05228",
+            "https://www.linkedin.com/in/minh-duc-phan-5a3b05228/",
+        ),
     ]
     for label, value, target in contact_lines:
         line = builder.paragraph(
