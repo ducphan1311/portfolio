@@ -931,20 +931,20 @@ def build_document() -> DocumentBuilder:
     other = builder.table(body, [5020, 160, 5026], cell_margin=0)
     other_projects = [
         (
+            "AI Review Engine",
+            "2026 · Creator & Lead · Enterprise AI code review & AST gate · Docker, Python, AST",
+        ),
+        (
             "Việt Nam Diệu Sử",
             "2025 · Team Lead / Mobile Developer · AR travel · Flutter, iOS/Swift · Team 5",
         ),
         (
             "Ebond",
-            "2024–2025 · Team Lead · POS technology research · Flutter, Java, Kafka, .NET · Team 25",
+            "2024–2025 · Team Lead · POS tech research · Flutter, Java, Kafka, .NET · Team 25",
         ),
         (
-            "ACCS",
-            "2022 · Mobile Developer · Restaurant operations & surveillance · Flutter · Team 10",
-        ),
-        (
-            "Tan Viet Book",
-            "2021–2022 · Mobile Developer · E-commerce · Flutter · Team 10",
+            "ACCS & Tan Viet Book",
+            "2021–2022 · Mobile Developer · Operations & E-commerce apps · Flutter",
         ),
     ]
     for row_index in range(2):
